@@ -1,0 +1,48 @@
+:root {
+  --mainBlue:#2A4D6E;
+  --mainRed: #b85a0d;
+  --lightRed: #e47830;
+  --mainWhite:#fff;
+  --mainDark: #484c52;
+  --lightBlue:#4A6B8A;
+  --darkBlue:#255686;
+}
+
+body {
+  /* font-family: 'Srisakdi', cursive !important; */
+  background: #728CA6 !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+
+.text-title {
+  font-family: 'Srisakdi', cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+.text-blue {
+  color: var(--mainBlue);
+}
+.text-bright {
+  color: var(--mainWhite);
+}
+.navbar {
+  justify-content: flex-start !important;
+}
+.btn-black {
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem !important;
+  color: var(--mainDark);
+  border-radius: 0 !important;
+  border: 0.1rem solid var(--darkBlue) !important;
+}
+.btn-black:hover {
+  background: var(--mainDark) !important;
+  color: var(--mainWhite) !important;
+}
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--mainRed);
+}
