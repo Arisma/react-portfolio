@@ -56,7 +56,7 @@ const ProductWrapper = styled.div`
   .card {
     border-color: transparent;
     transition: all 1s linear;
-    height: 45vh;
+    min-height: 320px;
   }
   .card-footer {
     background: transparent;
@@ -80,6 +80,8 @@ const ProductWrapper = styled.div`
   .card-img-top {
     transition: all 1s linear;    
     background-size: cover;
+    width: 100%; 
+    min-height: 150px;
     background-repeat: no-repeat;
     background-position: center;
   }
