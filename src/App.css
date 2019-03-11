@@ -26,6 +26,9 @@ body {
 .text-bright {
   color: var(--mainWhite);
 }
+.text-red {
+  color: var(--mainRed);
+}
 .navbar {
   justify-content: flex-start !important;
 }
@@ -33,9 +36,9 @@ body {
   background: transparent;
   text-transform: capitalize;
   font-size: 0.8rem !important;
-  color: var(--mainDark);
+  color: var(--mainWhite);
   border-radius: 0 !important;
-  border: 0.1rem solid var(--darkBlue) !important;
+  border: 0.1rem solid var(--mainWhite) !important;
 }
 .btn-black:hover {
   background: var(--mainDark) !important;
@@ -44,5 +47,7 @@ body {
 .cart-icon {
   cursor: pointer;
   font-size: 1.2rem;
-  color: var(--mainRed);
+  color: var(--mainDark);
 }
+
+

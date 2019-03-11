@@ -7,20 +7,20 @@ export default class Product extends Component {
   render() {
     const { id, title, img, price, inCart } = this.props.product;
     return (
-      <ProductWrapper className="col-6 mx-auto col-md-6 col-lg-3 my-3">
-        <div className="card justify-content-end">
+      <ProductWrapper className="col-6 mx-auto col-sm-6 col-md-3 col-lg-3 my-3">
+        <div className="product-grid justify-content-end">
           <ProductConsumer>
             {value => {
               return (
                 <div
-                  className="img-container p-5"
+                  className="product-image2 p-5"
                   onClick={() => value.handleDetail(id)}
                 >
                   <Link to="/details">
-                    <img src={img} alt="" className="card-img-top" />
+                    <img src={img} alt="" className="img-fluid pic-1" />
                   </Link>
                   <button
-                    className="cart-btn"
+                    className="add-to-cart"
                     disabled={inCart ? true : false}
                     onClick={() => {
                       value.addToCart(id);
@@ -32,19 +32,21 @@ export default class Product extends Component {
                         in cart
                       </p>
                     ) : (
-                      <i className="fas fa-cart-plus" />
+                      <i className="fas fa-cart-plus"> 
+                      <span className="buylabel"> Buy </span>
+                      </i>
                     )}
                   </button>
                 </div>
               );
             }}
           </ProductConsumer>
-          <div className="card-footer d-flex justify-content-center">
-            <p className="align-self-center mb-0">{title}</p>
-            <h5 className="priceInfo font-italic mb-0">
-              <span className="mr-1">$</span>
+          <div className="product-content d-flex justify-content-center">
+            <p className="title align-self-center mb-0">{title}</p>
+            <h3 className="price font-weight-bold mb-0">
+              <span className="mx-1">$</span>
               {price}
-            </h5>
+            </h3>
           </div>
         </div>
       </ProductWrapper>
@@ -53,62 +55,69 @@ export default class Product extends Component {
 }
 
 const ProductWrapper = styled.div`
-  .card {
-    border-color: transparent;
-    transition: all 1s linear;
-    min-height: 320px;
+  .product-grid {
+    font-family:'Roboto',sans-serif;
+    position:relative;
+    border:2px solid #ddd;
+    border-radius:8px
   }
-  .card-footer {
-    background: transparent;
-    border-top: transparent;
-    transition: all 1s linear;
+  
+  .product-grid .product-image2 {
+    overflow:hidden;
+    position:relative
   }
-  &:hover {
-    .card {
-      border: 0.04rem solid rgba(0, 0, 0, 0.2);
-      box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-    }
-    .card-footer {
-      background: var(--mainDark);
-      color: var(--mainWhite);
-    }
+
+  .product-grid .product-image2 a { display:block }
+  
+  .product-grid .product-image2 img {
+    width:100%;
+    height:165px;
+    background-size: cover
   }
-  .img-container {
-    position: relative;
-    overflow: hidden;
+
+  .product-image2 .pic-1 {
+    opacity:1;
+    transition:all .5s
   }
-  .card-img-top {
-    transition: all 1s linear;    
-    background-size: cover;
-    width: 100%; 
-    min-height: 150px;
-    background-repeat: no-repeat;
-    background-position: center;
+
+  .product-grid:hover .product-image2 .pic-1{opacity:0.5}
+  
+  .product-grid .add-to-cart {
+    color:#fff;
+    background-color:#404040;
+    font-size:15px;
+    text-align:center;
+    width:100%;
+    padding:10px 0;
+    display:block;
+    position:absolute;
+    left:0;
+    bottom:-100%;
+    transition:all .3s
   }
-  .img-container:hover .card-img-top {
-    transform: scale(1.2);
+
+  .product-grid .add-to-cart:hover{
+    background-color:#3498db;
+    text-decoration:none
   }
-  .cart-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 0.2rem 0.4rem;
-    background: var(--lightBlue);
-    border: none;
-    color: var(--mainWhite);
-    font-size: 1.4rem;
-    border-radius: 0.5rem 0 0 0;
-    transform: translate(100%, 100%);
-    transition: all 1s ease-in-out;
+
+  .product-grid:hover .add-to-cart{bottom:0}
+
+  .product-grid .product-content{
+    padding:20px 10px;
+    text-align:center
   }
-  .img-container:hover .cart-btn {
-    transform: translate(0, 0);
+
+  .product-grid .title { 
+    font-size:15px;
+    margin:0 0 7px 
   }
-  .cart-btn:hover {
-    color: var(--mainBlue);
-    cursor: pointer;
+  .product-grid .title { color:var(--mainWhite) }
+  .product-grid .title:hover { color:var(--mainWhite) }
+  
+  .product-grid .price {
+    color:var(--mainWhite);
+    font-size:17px
   }
-  .card-footer .priceInfo {
-    color: var(--ligthRed);
-  }
+  
 `;
