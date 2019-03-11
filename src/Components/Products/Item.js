@@ -7,7 +7,7 @@ export default class Product extends Component {
   render() {
     const { id, title, img, price, inCart } = this.props.product;
     return (
-      <ProductWrapper className="col-6 mx-auto col-sm-6 col-md-3 col-lg-3 my-3">
+      <ProductWrapper className="col-10 mx-auto col-sm-10 col-md-3 col-lg-3 my-3">
         <div className="product-grid justify-content-end">
           <ProductConsumer>
             {value => {
